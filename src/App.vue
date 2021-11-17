@@ -7,11 +7,19 @@
     </div>
     <div>
       <ul>
-        <li v-for="(movie, id) in movies" :key="id">
+        <li v-for="(movie, id) in movies" :key="id" >
+          <h3>film</h3>
           {{movie.title}} <br>
           {{movie.original_title}} <br>
           <img :src="flags(movie.original_language)" :alt="movie.original_language"> <br>
           {{movie.vote_average}}
+        </li>
+        <li v-for="(serie, id) in series" :key="id" >
+          <h3>serie</h3>
+          {{serie.name}} <br>
+          {{serie.original_name}} <br>
+          <img :src="flags(serie.original_language)" :alt="serie.original_language"> <br>
+          {{serie.vote_average}}
         </li>
       </ul>
     </div>
@@ -32,6 +40,7 @@ export default {
       apiUrl: 'https://api.themoviedb.org/3',
       apiKey: '9caf6d244b3195b2f3c44cba59c630ef',
       movies: undefined,
+      series: undefined,
       query: '',
     }
   },
@@ -47,6 +56,20 @@ export default {
       });
       this.query = ''
       return this.movies
+
+    },
+      serie() {
+      axios.get(this.apiUrl + '/search/tv', {
+      params: {
+        api_key: this.apiKey,
+        query: this.query,
+      }
+      }).then(resp =>{
+        this.series = resp.data.results;
+      });
+      this.query = ''
+      return this.series
+
     },
     flags(lang) {
       switch (lang) {

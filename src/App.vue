@@ -8,8 +8,10 @@
     <div>
       <ul>
         <li v-for="(movie, id) in movies" :key="id">
-          {{movie.title}}, {{movie.original_title}}, {{movie.original_language}}, {{movie.vote_average}}
-          
+          {{movie.title}} <br>
+          {{movie.original_title}} <br>
+          <img :src="flags(movie.original_language)" alt="#"> <br>
+          {{movie.vote_average}}
         </li>
       </ul>
     </div>
@@ -45,6 +47,27 @@ export default {
       });
       this.query = ''
       return this.movies
+    },
+    flags(lang) {
+      switch (lang) {
+        case "en":
+        return "https://flagcdn.com/256x192/gb.png"
+        
+        case "it":
+        return "https://flagcdn.com/256x192/it.png"
+        
+        case "fr":
+        return "https://flagcdn.com/256x192/fr.png"
+        
+        case "es":
+        return "https://flagcdn.com/256x192/es.png"
+        
+        case "de":
+        return "https://flagcdn.com/256x192/de.png"
+
+        default: 
+        return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png"
+      }
     }
   },
   mounted() {
@@ -58,7 +81,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  img {
+    height: 50px;
+  }
  
 }
 </style>

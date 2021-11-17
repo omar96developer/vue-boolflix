@@ -10,7 +10,7 @@
         <li v-for="(movie, id) in movies" :key="id">
           {{movie.title}} <br>
           {{movie.original_title}} <br>
-          <img :src="flags(movie.original_language)" alt="#"> <br>
+          <img :src="flags(movie.original_language)" :alt="movie.original_language"> <br>
           {{movie.vote_average}}
         </li>
       </ul>

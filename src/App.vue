@@ -14,7 +14,13 @@
           <img :src="flags(movie.original_language)" :alt="movie.original_language"> <br>
           {{movie.vote_average}}
         </li>
-        
+        <li v-for="(serie, id) in series" :key="id" >
+          <h3>serie</h3>
+          {{serie.name}} <br>
+          {{serie.original_name}} <br>
+          <img :src="flags(serie.original_language)" :alt="serie.original_language"> <br>
+          {{serie.vote_average}}
+        </li>
       </ul>
     </div>
   </div>
@@ -34,12 +40,12 @@ export default {
       apiUrl: 'https://api.themoviedb.org/3',
       apiKey: '9caf6d244b3195b2f3c44cba59c630ef',
       movies: [],
-      
+      series: [],
       query: '',
     }
   },
   methods:{
-    film(url, search, tipo) {
+    media(url, search, tipo) {
       axios.get(this.apiUrl + url, {
       params: {
         api_key: this.apiKey,
@@ -51,7 +57,8 @@ export default {
     },
 
     ricerca(){
-      this.film('/search/movie',this.query, 'movies');
+      this.media('/search/movie',this.query, 'movies');
+      this.media('/search/tv',this.query, 'series');
     },
     flags(lang) {
       switch (lang) {

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div>
-      <input type="text" placeholder="Ricerca..." v-model="query" @keyup.enter="film()">
-      <button @click="film()">cerca</button>
+      <input type="text" placeholder="Ricerca..." v-model="query" @keyup.enter="ricerca();">
+      <button @click="ricerca();">cerca</button>
       <div></div>
     </div>
     <div>
@@ -14,13 +14,7 @@
           <img :src="flags(movie.original_language)" :alt="movie.original_language"> <br>
           {{movie.vote_average}}
         </li>
-        <li v-for="(serie, id) in series" :key="id" >
-          <h3>serie</h3>
-          {{serie.name}} <br>
-          {{serie.original_name}} <br>
-          <img :src="flags(serie.original_language)" :alt="serie.original_language"> <br>
-          {{serie.vote_average}}
-        </li>
+        
       </ul>
     </div>
   </div>
@@ -39,37 +33,25 @@ export default {
     return{
       apiUrl: 'https://api.themoviedb.org/3',
       apiKey: '9caf6d244b3195b2f3c44cba59c630ef',
-      movies: undefined,
-      series: undefined,
+      movies: [],
+      
       query: '',
     }
   },
   methods:{
-    film() {
-      axios.get(this.apiUrl + '/search/movie', {
+    film(url, search, tipo) {
+      axios.get(this.apiUrl + url, {
       params: {
         api_key: this.apiKey,
-        query: this.query,
+        query: search,
       }
       }).then(resp =>{
-        this.movies = resp.data.results;
+        this[tipo] = resp.data.results;
       });
-      this.query = ''
-      return this.movies
-
     },
-      serie() {
-      axios.get(this.apiUrl + '/search/tv', {
-      params: {
-        api_key: this.apiKey,
-        query: this.query,
-      }
-      }).then(resp =>{
-        this.series = resp.data.results;
-      });
-      this.query = ''
-      return this.series
 
+    ricerca(){
+      this.film('/search/movie',this.query, 'movies');
     },
     flags(lang) {
       switch (lang) {

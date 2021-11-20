@@ -4,7 +4,7 @@
         {{serieInfo.name}} <br>
         {{serieInfo.original_name}} <br>
         <img :src="flags(serieInfo.original_language)" :alt="serieInfo.original_language" style="height: 30px; width: 30px;"> <br> 
-       {{Math.ceil(serieInfo.vote_average / 2)}} <br>
+        {{Math.ceil(serieInfo.vote_average / 2)}} <br>
         
         <div class="stars">
             <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
@@ -13,7 +13,6 @@
             <i class="fa fa-star s4" :class="this.avv >= 4 ? 'active' : '' "></i>
             <i class="fa fa-star s5" :class="this.avv >= 5 ? 'active' : '' "></i>
         </div>
-        
     </li>
 </template>
 
@@ -23,7 +22,7 @@
 export default {
   name: 'Serie',
     props: {
-    serieInfo: Object,
+    serieInfo: Array,
     },
     data() {
         return {
@@ -51,10 +50,9 @@ export default {
             default: 
             return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png"
         }
-        },
-        
-        
+        }, 
     },
+
     computed: {
         imgPath() {
             const root = 'https://image.tmdb.org/t/p/';
@@ -63,10 +61,7 @@ export default {
                 return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png"
             }
             return root + size + this.serieInfo.poster_path;
-        }
-        
-        
-    }
-    
+        }      
+    }    
     }
 </script>

@@ -4,7 +4,7 @@
         {{movieInfo.title}} <br>
         {{movieInfo.original_title}} <br>
         <img :src="flags(movieInfo.original_language)" :alt="movieInfo.original_language" style="height: 30px; width: 30px;"> <br> 
-       {{Math.ceil(movieInfo.vote_average / 2)}} <br>
+        {{Math.ceil(movieInfo.vote_average / 2)}} <br>
         
         <div class="stars">
             <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
@@ -13,17 +13,15 @@
             <i class="fa fa-star s4" :class="this.avv >= 4 ? 'active' : '' "></i>
             <i class="fa fa-star s5" :class="this.avv >= 5 ? 'active' : '' "></i>
         </div>
-        
     </li>
 </template>
 
 <script>
 
-
 export default {
   name: 'Film',
     props: {
-    movieInfo: Object,
+    movieInfo: Array,
     },
     data() {
         return {
@@ -63,10 +61,7 @@ export default {
                 return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png"
             }
             return root + size + this.movieInfo.poster_path;
-        }
-        
-        
-    }
-    
+        } 
+    }  
     }
 </script>

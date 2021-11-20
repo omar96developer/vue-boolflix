@@ -3,11 +3,11 @@
     <div>
       <input type="text" placeholder="Ricerca..." v-model="query" @keyup.enter="ricerca();">
       <button @click="ricerca();">cerca</button>
-      <div></div>
+      <i class="fa fa-star"></i>
     </div>
     <div class="d-flex">
       <ul>
-          <Card v-for="(movie, id) in movies" :key="id" :data='movie' ></Card>
+          <Film v-for="(movie, id) in movies" :key="id" :data='movie' ></Film>
         
         <!-- <li v-for="(movie, id) in movies" :key="id" >
           <h3>film</h3>
@@ -23,7 +23,7 @@
           {{serie.name}} <br>
           {{serie.original_name}} <br>
           <img :src="flags(serie.original_language)" :alt="serie.original_language" style="height: 30px;"> <br>
-          {{serie.vote_average}}
+          {{Math.ceil(serie.vote_average / 2) }}
         </li>
       </ul> 
     </div>
@@ -32,14 +32,14 @@
 
 <script>
 /* import HelloWorld from './components/HelloWorld.vue' */
-import Card from '@/components/Card.vue' 
+import Film from '@/components/Film.vue' 
 import axios from "axios"
 
 
 export default {
   name: 'Main',
   components: {
-    Card
+    Film
   },
   data(){
     return{

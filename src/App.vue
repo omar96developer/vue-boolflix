@@ -1,101 +1,28 @@
 <template>
   <div id="app">
-    <div>
-      <input type="text" placeholder="Ricerca..." v-model="query" @keyup.enter="ricerca();">
-      <button @click="ricerca();">cerca</button>
-      <div></div>
-    </div>
-    <div>
-      <ul>
-        <li v-for="(movie, id) in movies" :key="id" >
-          <h3>film</h3>
-          {{movie.title}} <br>
-          {{movie.original_title}} <br>
-          <img :src="flags(movie.original_language)" :alt="movie.original_language"> <br>
-          {{movie.vote_average}}
-        </li>
-        <li v-for="(serie, id) in series" :key="id" >
-          <h3>serie</h3>
-          {{serie.name}} <br>
-          {{serie.original_name}} <br>
-          <img :src="flags(serie.original_language)" :alt="serie.original_language"> <br>
-          {{serie.vote_average}}
-        </li>
-      </ul>
-    </div>
+   <Main></Main>
   </div>
 </template>
 
 <script>
 /* import HelloWorld from './components/HelloWorld.vue' */
-import axios from "axios"
+import Main from './components/Main.vue' 
 
 export default {
   name: 'App',
   components: {
-    
+    Main
   },
-  data(){
-    return{
-      apiUrl: 'https://api.themoviedb.org/3',
-      apiKey: '9caf6d244b3195b2f3c44cba59c630ef',
-      movies: [],
-      series: [],
-      query: '',
-    }
-  },
-  methods:{
-    media(url, search, tipo) {
-      axios.get(this.apiUrl + url, {
-      params: {
-        api_key: this.apiKey,
-        query: search,
-      }
-      }).then(resp =>{
-        this[tipo] = resp.data.results;
-      });
-    },
-
-    ricerca(){
-      this.media('/search/movie',this.query, 'movies');
-      this.media('/search/tv',this.query, 'series');
-    },
-    flags(lang) {
-      switch (lang) {
-        case "en":
-        return "https://flagcdn.com/256x192/gb.png"
-        
-        case "it":
-        return "https://flagcdn.com/256x192/it.png"
-        
-        case "fr":
-        return "https://flagcdn.com/256x192/fr.png"
-        
-        case "es":
-        return "https://flagcdn.com/256x192/es.png"
-        
-        case "de":
-        return "https://flagcdn.com/256x192/de.png"
-
-        default: 
-        return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png"
-      }
-    }
-  },
-  mounted() {
-    
-  }
 }
 </script>
 
 <style lang="scss">
+@import "/styles/app.scss";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  img {
-    height: 50px;
-  }
  
 }
 </style>

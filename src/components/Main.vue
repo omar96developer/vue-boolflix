@@ -7,7 +7,7 @@
     </div>
     <div class="d-flex">
       <ul>
-          <Film v-for="(movie, id) in movies" :key="id" :data='movie' ></Film>
+          <Film v-for="(movie, id) in movies" :key="id" :movieInfo='movie' ></Film>
         
         <!-- <li v-for="(movie, id) in movies" :key="id" >
           <h3>film</h3>
@@ -18,13 +18,15 @@
         </li>  -->
       </ul>
       <ul>
-        <li v-for="(serie, id) in series" :key="id" >
+          <Serie v-for="(serie, id) in series" :key="id" :serieInfo='serie' ></Serie>
+
+        <!-- <li v-for="(serie, id) in series" :key="id" >
           <h3>serie</h3>
           {{serie.name}} <br>
           {{serie.original_name}} <br>
           <img :src="flags(serie.original_language)" :alt="serie.original_language" style="height: 30px;"> <br>
           {{Math.ceil(serie.vote_average / 2) }}
-        </li>
+        </li> -->
       </ul> 
     </div>
   </div>
@@ -33,13 +35,15 @@
 <script>
 /* import HelloWorld from './components/HelloWorld.vue' */
 import Film from '@/components/Film.vue' 
+import Serie from '@/components/Serie.vue' 
 import axios from "axios"
 
 
 export default {
   name: 'Main',
   components: {
-    Film
+    Film,
+    Serie
   },
   data(){
     return{

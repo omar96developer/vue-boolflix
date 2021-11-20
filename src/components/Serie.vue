@@ -1,10 +1,10 @@
 <template>
     <li class="d-flex flex-column">
         <img :src="imgPath" alt="#">    
-        {{movieInfo.title}} <br>
-        {{movieInfo.original_title}} <br>
-        <img :src="flags(movieInfo.original_language)" :alt="movieInfo.original_language" style="height: 30px; width: 30px;"> <br> 
-       {{Math.ceil(movieInfo.vote_average / 2)}} <br>
+        {{serieInfo.name}} <br>
+        {{serieInfo.original_name}} <br>
+        <img :src="flags(serieInfo.original_language)" :alt="serieInfo.original_language" style="height: 30px; width: 30px;"> <br> 
+       {{Math.ceil(serieInfo.vote_average / 2)}} <br>
         
         <div class="stars">
             <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
@@ -21,13 +21,13 @@
 
 
 export default {
-  name: 'Film',
+  name: 'Serie',
     props: {
-    movieInfo: Object,
+    serieInfo: Object,
     },
     data() {
         return {
-            avv: Math.ceil(this.movieInfo.vote_average / 2),
+            avv: Math.ceil(this.serieInfo.vote_average / 2),
         }
     },
     methods: {
@@ -59,10 +59,10 @@ export default {
         imgPath() {
             const root = 'https://image.tmdb.org/t/p/';
             const size = 'w342';
-            if(!this.movieInfo.poster_path) {
+            if(!this.serieInfo.poster_path) {
                 return "https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png"
             }
-            return root + size + this.movieInfo.poster_path;
+            return root + size + this.serieInfo.poster_path;
         }
         
         

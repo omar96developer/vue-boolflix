@@ -1,0 +1,20 @@
+.search_bar {
+    background-color: black;
+    .search_title{
+        color: red;
+    }
+    
+    .search{
+        justify-content: flex-end;
+        padding: 10px;
+        input{
+            border-radius: 10px 0 0 10px;
+        }
+        button{
+            border-radius: 0 10px 10px 0;
+            width: 60px;
+            background-color: red;
+            color: white;
+        }
+    }
+}

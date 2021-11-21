@@ -1,5 +1,5 @@
 <template>
-    <li class="d-flex flex-column">
+    <li class="">
         <img :src="imgPath" alt="#">    
         {{serieInfo.name}} <br>
         {{serieInfo.original_name}} <br>

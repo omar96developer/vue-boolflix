@@ -1,3 +1,30 @@
+.media_container{
+    border: 1px solid;
+
+    .media {
+        list-style: none;
+        padding: 0;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        row-gap: 50px;
+        .media_card {
+            width: 342px;
+            img{
+                height: 500px;
+                width: 100%;
+            }
+            .text{
+                height: 500px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
 .s1, .s2, .s3, .s4, .s5 {
     opacity: 0;
 }

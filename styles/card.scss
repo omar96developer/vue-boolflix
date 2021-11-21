@@ -1,6 +1,6 @@
 .media_container{
-    border: 1px solid;
     background-color: grey;
+    min-height: 100vh;
 
     .media {
         list-style: none;
@@ -11,18 +11,31 @@
         .media_card {
             width: 342px;
             position: relative;
+            height: 500px;
             img{
-                height: 500px;
+                height: 100%;
                 width: 100%;
             }
             .text{
-                height: 500px;
+                height: 100%;
                 width: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-color: white;
+                background-color: black;
+                color: white;
                 display: none;
+                h4, .trama{
+                    text-align: center;
+                    
+                }
+                .trama{
+                    display: -webkit-box;
+                    width: 100%;
+                    -webkit-line-clamp: 8;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
             }
             &:hover .text {
                 display: block;

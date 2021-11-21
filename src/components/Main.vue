@@ -1,26 +1,29 @@
 <template>
   <div>
-    <div class="container search_bar">
+    <div class="container-fluid search_bar">
+      <div class="container ">
       <div class="row d-flex search_title">
-        <div class="col-6 border">
+        <div class="col-6 ">
           <h1>BOOLFLIX</h1>
         </div>
-        <div class="col-6 border d-flex search">
+        <div class="col-6 d-flex search">
             <input type="text" placeholder="Ricerca..." v-model="query" @keyup.enter="ricerca();">
             <button @click="ricerca();">Cerca</button>
         </div>
       </div>
     </div>
-    <div class="container media_container">
+    </div>
+    <div class="container-fluid media_container">
+      <div class="container ">
       <div class="row d-flex flex-column">
-        <div class="col">
-          <h2>Film</h2>
+        <div class="col mt-5">
+          <h1>Film</h1>
           <ul class="media d-flex pt-4 pb-3">
             <Film v-for="(movie, id) in movies" :key="id" :movieInfo='movie' ></Film>
           </ul>
         </div>
-        <div class="col">
-          <h2>Serie</h2>
+        <div class="col mt-5">
+          <h1>Serie</h1>
           <ul class="media d-flex pt-4 pb-3">
             <Serie v-for="(serie, id) in series" :key="id" :serieInfo='serie' ></Serie>
           </ul> 
@@ -29,6 +32,8 @@
       
       
     </div>
+    </div>
+    
   </div>
 </template>
 

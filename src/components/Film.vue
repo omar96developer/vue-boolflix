@@ -5,7 +5,7 @@
             <h4 class="mb-5">{{movieInfo.title}}</h4>    
             <p class="mb-3"><strong>Titolo Originale: </strong>{{movieInfo.original_title}}</p>
             <img  class="mb-3" :src="flags(movieInfo.original_language)" :alt="movieInfo.original_language" style="height: 30px; width: 50px;">       
-            <div class="stars">
+            <div class="stars ">
                 <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
                 <i class="fa fa-star s2" :class="this.avv >= 2 ? 'active' : '' "></i>
                 <i class="fa fa-star s3" :class="this.avv >= 3 ? 'active' : '' "></i>

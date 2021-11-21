@@ -1,17 +1,18 @@
 <template>
-    <li class="media_card border">
+    <li class="media_card ">
         <img :src="imgPath" alt="#">  
-        <div class="text">
-            <h4>{{serieInfo.name}}</h4> 
-            <h6>{{serieInfo.original_name}}</h6> 
-            <img :src="flags(serieInfo.original_language)" :alt="serieInfo.original_language" style="height: 30px; width: 30px;">           
-            <div class="stars">
+        <div class="text p-4 border">
+            <h4 class="mb-5">{{serieInfo.name}}</h4> 
+            <p class="mb-3"><strong>Titolo Originale: </strong>{{serieInfo.original_name}}</p> 
+            <img class="mb-3"  :src="flags(serieInfo.original_language)" :alt="serieInfo.original_language" style="height: 30px; width: 30px;">           
+            <div class="stars ">
                 <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
                 <i class="fa fa-star s2" :class="this.avv >= 2 ? 'active' : '' "></i>
                 <i class="fa fa-star s3" :class="this.avv >= 3 ? 'active' : '' "></i>
                 <i class="fa fa-star s4" :class="this.avv >= 4 ? 'active' : '' "></i>
                 <i class="fa fa-star s5" :class="this.avv >= 5 ? 'active' : '' "></i>
             </div>
+            <p class="trama"><strong style="font-size: 25px;">Trama: </strong><br>{{serieInfo.overview}}</p>
         </div>  
     </li>
 </template>

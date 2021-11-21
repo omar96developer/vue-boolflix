@@ -1,18 +1,18 @@
 <template>
-    <li class="">
-        <img :src="imgPath" alt="#">    
-        {{serieInfo.name}} <br>
-        {{serieInfo.original_name}} <br>
-        <img :src="flags(serieInfo.original_language)" :alt="serieInfo.original_language" style="height: 30px; width: 30px;"> <br> 
-        {{Math.ceil(serieInfo.vote_average / 2)}} <br>
-        
-        <div class="stars">
-            <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
-            <i class="fa fa-star s2" :class="this.avv >= 2 ? 'active' : '' "></i>
-            <i class="fa fa-star s3" :class="this.avv >= 3 ? 'active' : '' "></i>
-            <i class="fa fa-star s4" :class="this.avv >= 4 ? 'active' : '' "></i>
-            <i class="fa fa-star s5" :class="this.avv >= 5 ? 'active' : '' "></i>
-        </div>
+    <li class="media_card border">
+        <img :src="imgPath" alt="#">  
+        <div class="text">
+            <h4>{{serieInfo.name}}</h4> 
+            <h6>{{serieInfo.original_name}}</h6> 
+            <img :src="flags(serieInfo.original_language)" :alt="serieInfo.original_language" style="height: 30px; width: 30px;">           
+            <div class="stars">
+                <i class="fa fa-star s1" :class="this.avv >= 1 ? 'active' : '' "></i>
+                <i class="fa fa-star s2" :class="this.avv >= 2 ? 'active' : '' "></i>
+                <i class="fa fa-star s3" :class="this.avv >= 3 ? 'active' : '' "></i>
+                <i class="fa fa-star s4" :class="this.avv >= 4 ? 'active' : '' "></i>
+                <i class="fa fa-star s5" :class="this.avv >= 5 ? 'active' : '' "></i>
+            </div>
+        </div>  
     </li>
 </template>
 

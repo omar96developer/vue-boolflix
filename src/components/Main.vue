@@ -14,12 +14,14 @@
     <div class="container media_container">
       <div class="row d-flex flex-column">
         <div class="col">
-          <ul class="media d-flex pt-3 pb-3">
+          <h2>Film</h2>
+          <ul class="media d-flex pt-4 pb-3">
             <Film v-for="(movie, id) in movies" :key="id" :movieInfo='movie' ></Film>
           </ul>
         </div>
         <div class="col">
-          <ul class="media d-flex">
+          <h2>Serie</h2>
+          <ul class="media d-flex pt-4 pb-3">
             <Serie v-for="(serie, id) in series" :key="id" :serieInfo='serie' ></Serie>
           </ul> 
         </div>

@@ -1,25 +1,27 @@
-# vue-boolflix
 
-## Project setup
-```
-npm install
-```
+# Boolflix
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Hello everybody!  
 
-### Compiles and minifies for production
-```
-npm run build
-```
+This is my Netflix replica cooded with VUE JS.  
+This website app works thanks to API calls to themoviedb.org, done with AXIOS.  
 
-### Lints and fixes files
-```
-npm run lint
-```
+Hope you like it, since this was my first time trying API calls😁.
+## Demo
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-![boolfix](https://user-images.githubusercontent.com/84162621/169569915-ef6558fa-d9eb-4a31-8f1c-018e2c6afdc6.png)
+[🔗 Website link](https://spotify-proj.netlify.app/)
+
+
+
+
+## Screenshots
+
+
+
+
+## Authors
+
+- [@omar96developer](https://github.com/omar96developer)
+
+
+

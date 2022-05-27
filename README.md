@@ -16,6 +16,7 @@ Hope you like it, since this was my first time trying API calls😁.
 
 ## Screenshots
 
+![boolfix](https://user-images.githubusercontent.com/84162621/170785269-a74731f3-639d-42cf-afed-e6c6bf35865b.png)
 
 
 
